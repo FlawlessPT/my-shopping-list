@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -135,12 +136,16 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.myshoppinglist"
+        applicationId "pt.myshoppinglist"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        flavorDimensions "default"
+
+        resValue "string", "build_config_package_debug", "pt.myshoppinglist.test"
+        resValue "string", "build_config_package_release", "pt.myshoppinglist"
 
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.
@@ -228,6 +233,23 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    productFlavors {
+        Development {
+            resValue "string", "build_config_package_debug", "pt.myshoppinglist.test"
+            resValue "string", "app_name", "(DEV) My Shopping List"
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "pt.myshoppinglist.test"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+        }
+        Production {
+            resValue "string", "build_config_package_debug", "pt.myshoppinglist"
+            resValue "string", "app_name", "My Shopping List"
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "pt.myshoppinglist"
+            targetSdkVersion rootProject.ext.targetSdkVersion
         }
     }
 
