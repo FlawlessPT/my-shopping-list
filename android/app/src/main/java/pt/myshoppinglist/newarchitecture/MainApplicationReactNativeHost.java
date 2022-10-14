@@ -1,4 +1,4 @@
-package com.myshoppinglist.newarchitecture;
+package pt.myshoppinglist.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.myshoppinglist.BuildConfig;
-import com.myshoppinglist.newarchitecture.components.MainComponentsRegistry;
-import com.myshoppinglist.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import pt.myshoppinglist.BuildConfig;
+import pt.myshoppinglist.newarchitecture.components.MainComponentsRegistry;
+import pt.myshoppinglist.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

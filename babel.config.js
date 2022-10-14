@@ -13,7 +13,7 @@ module.exports = {
           '~/navigation': './src/navigation',
           '~/theme': './src/theme',
           '~/translations': './src/translations',
-          '~/http': './src/http',
+          '~/services': './src/services',
           '~/models': './src/models',
           '~/providers': './src/providers',
           '~/helpers': './src/helpers',
