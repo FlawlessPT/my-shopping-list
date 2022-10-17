@@ -1,8 +1,16 @@
 /* React */
 import React from 'react';
 
-const RootNavigator = (): JSX.Element => {
-  return <></>;
-};
+/* Navigation */
+import { NavigationContainer } from '@react-navigation/native';
 
-export default RootNavigator;
+/* Stacks */
+import RootStack from './AppStack';
+
+export default function RootNavigator(): JSX.Element {
+  return (
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
+  );
+}
