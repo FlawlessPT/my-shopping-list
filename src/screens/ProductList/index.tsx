@@ -1,4 +1,4 @@
-/* React */
+/* React and React Native */
 import React from 'react';
 import { View, Text } from 'react-native';
 
@@ -11,7 +11,7 @@ const ProductList = (): JSX.Element => {
         justifyContent: 'center',
       }}
     >
-      <Text>Home</Text>
+      <Text>Product List</Text>
     </View>
   );
 };

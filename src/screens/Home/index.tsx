@@ -1,18 +1,32 @@
-/* React */
+/* React and React Native */
 import React from 'react';
-import { View, Text } from 'react-native';
+
+/* Components */
+import { ShoppingList, Page, StartButton } from '~/components';
+
+/* Texts */
+import { texts } from '~/texts';
+
+/* Hooks */
+import useShoppingList from '~/hooks/ShoppingList';
 
 const Home = (): JSX.Element => {
+  const { shoppingList, onCheckProduct } = useShoppingList();
+
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+    <Page
+      title={texts.shopping_list}
+      subtitle={texts.home_subtitle}
+      rightComponent={
+        <StartButton
+          onPress={() => {
+            return;
+          }}
+        />
+      }
     >
-      <Text>Home</Text>
-    </View>
+      <ShoppingList shoppingList={shoppingList} onCheckProduct={onCheckProduct} />
+    </Page>
   );
 };
 
