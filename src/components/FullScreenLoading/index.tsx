@@ -7,16 +7,20 @@ import Spinner from 'react-native-spinkit';
 /* Styles */
 import { Container, Title } from './styles';
 
-const FullScreenLoading = (): JSX.Element => {
-  const isLoading = true;
+interface FullScreenLoadingProps {
+  isLoading: boolean;
+}
 
+const FullScreenLoading = ({ isLoading = true }: FullScreenLoadingProps): JSX.Element => {
   return (
-    isLoading && (
-      <Container>
-        <Spinner type="WanderingCubes" color="black" />
-        <Title>A carregar lista de compras...</Title>
-      </Container>
-    )
+    <>
+      {isLoading && (
+        <Container>
+          <Spinner type="WanderingCubes" color="black" />
+          <Title>A carregar lista de compras...</Title>
+        </Container>
+      )}
+    </>
   );
 };
 
