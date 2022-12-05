@@ -551,7 +551,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pt.myshoppinglist.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.myshoppinglist.test;
 				PRODUCT_NAME = "🚀 Shopping List";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

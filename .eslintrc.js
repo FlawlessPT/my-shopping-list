@@ -1,12 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'prettier',
-    'react-hooks',
-    'sonarjs',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'prettier', 'react-hooks', 'sonarjs'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
@@ -24,12 +18,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    quotes: ['error', 'single', {avoidEscape: true}],
+    quotes: ['error', 'single', { avoidEscape: true }],
     'no-unused-expressions': ['error'],
-    'linebreak-style': [
-      'error',
-      process.platform === 'win32' ? 'windows' : 'unix',
-    ],
+    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
     'no-undef': ['error'],
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [

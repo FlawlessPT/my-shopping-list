@@ -8,7 +8,7 @@ import Spinner from 'react-native-spinkit';
 import { Container, Title } from './styles';
 
 interface FullScreenLoadingProps {
-  isLoading: boolean;
+  isLoading?: boolean;
 }
 
 const FullScreenLoading = ({ isLoading = true }: FullScreenLoadingProps): JSX.Element => {

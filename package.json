@@ -19,7 +19,7 @@
     "format-staged-code": "pretty-quick --staged --pattern \"**/*.ts{,x}\"",
     "ts-check": "tsc",
     "static-code-validator": "yarn ts-check && yarn lint",
-    "pre-commit-hook": "yarn format-staged-code && yarn static-code-validator",
+    "pre-commit": "yarn format-staged-code && yarn static-code-validator",
     "build-android": "cd android && ./gradlew assembleProductionRelease && cd .."
   },
   "dependencies": {
