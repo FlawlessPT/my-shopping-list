@@ -28,7 +28,7 @@ const ShoppingListCard = ({ name, quantity, market, isChecked, onChangeValue }: 
         <Label type="h4">{`${withQuantity}${capitalizeFirstLetter(name)}`}</Label>
         {market && <Label type="footnote">{market}</Label>}
       </ProductContainer>
-      <Checkbox initialValue={isChecked} onChangeValue={onChangeValue} />
+      <Checkbox isChecked={isChecked} onChangeValue={onChangeValue} />
     </Container>
   );
 };

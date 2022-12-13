@@ -1,5 +1,5 @@
 /* React and React Native */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* Styles */
 import { CheckboxIcon, ContainerChecked, ContainerUnchecked } from './styles';
@@ -14,7 +14,13 @@ interface CheckboxProps extends BaseCheckboxProps {
 const Checkbox = ({ initialValue, isChecked: isCheck, onChangeValue }: CheckboxProps): JSX.Element => {
   const [isChecked, setIsChecked] = useState(initialValue || isCheck);
 
+  // this useEffect give checkbox the capability to work without having its state controlled outside the component
+  useEffect(() => {
+    if (!initialValue) setIsChecked(isCheck);
+  }, [initialValue, isCheck]);
+
   const onChange = () => {
+    // if isCheck prop is passed it means that the state should be controlled outside the component
     if (isCheck === undefined) {
       setIsChecked(!isChecked);
     }
@@ -25,7 +31,7 @@ const Checkbox = ({ initialValue, isChecked: isCheck, onChangeValue }: CheckboxP
 };
 
 interface CheckboxComponentProps {
-  onChangeValue: (newValue: boolean) => void;
+  onChangeValue: () => void;
 }
 
 const CheckBoxChecked = ({ onChangeValue }: CheckboxComponentProps) => {

@@ -11,7 +11,7 @@ import { texts } from '~/texts';
 import useShoppingList from '~/hooks/ShoppingList';
 
 const Home = (): JSX.Element => {
-  const { shoppingList, onCheckProduct } = useShoppingList();
+  const shoppingListProps = useShoppingList();
 
   return (
     <Page
@@ -25,7 +25,7 @@ const Home = (): JSX.Element => {
         />
       }
     >
-      <ShoppingList shoppingList={shoppingList} onCheckProduct={onCheckProduct} />
+      <ShoppingList {...shoppingListProps} />
     </Page>
   );
 };

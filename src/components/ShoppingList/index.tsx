@@ -16,26 +16,39 @@ import { flashListContentContainer } from './utils';
 
 /* Models */
 import { ShoppingListProduct } from '~/models/ShoppingList';
+import { ActivityIndicator, Text } from 'react-native';
 
 interface ShoppingListProps {
-  shoppingList: ShoppingListProduct[];
-  onCheckProduct: (newState: boolean) => void;
+  shoppingList: ShoppingListProduct[] | undefined;
+  checkProduct: (id: string, newState: boolean) => Promise<void>;
 }
 
-const ShoppingList = ({ shoppingList, onCheckProduct }: ShoppingListProps): JSX.Element => {
-  return (
+const ShoppingList = ({ shoppingList, checkProduct }: ShoppingListProps): JSX.Element => {
+  return shoppingList ? (
     <FlashList
       data={shoppingList}
-      renderItem={({ item, index }) => (
+      renderItem={({ item }) => (
         <HorizontalSafeMargin>
-          <ShoppingListCard key={index} {...item} isChecked={item.is_checked} onChangeValue={onCheckProduct} />
+          <ShoppingListCard
+            key={item.id}
+            {...item}
+            isChecked={item.is_checked}
+            onChangeValue={(newState: boolean) => {
+              if (item.id) checkProduct(item.id, newState);
+            }}
+          />
         </HorizontalSafeMargin>
       )}
       estimatedItemSize={shoppingList.length}
       ItemSeparatorComponent={() => <Spacer />}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={flashListContentContainer}
+      ListEmptyComponent={<Text>List empty...</Text>}
+      // TODO: Validate whats will change using this prop
+      ListHeaderComponent={<></>}
     />
+  ) : (
+    <ActivityIndicator />
   );
 };
 

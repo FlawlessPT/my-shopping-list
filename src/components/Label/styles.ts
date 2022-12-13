@@ -8,13 +8,13 @@ import { scaleFS } from '~/helpers/metrics';
 import { LabelProps } from '.';
 
 interface DefaultTextProps extends LabelProps {
-  fontFamily: string;
+  fontFamily?: string;
   size: number;
   lineHeight: number;
 }
 
 export const DefaultText = styled.Text<DefaultTextProps>`
-  /* font-family: ${({ fontFamily }) => fontFamily}; */
+  font-family: ${({ fontFamily }) => fontFamily || 'Arial'};
   color: ${({ color }) => color};
   text-align: ${({ textAlign }) => textAlign};
   font-size: ${({ size }) => scaleFS(size)}px;
